@@ -198,9 +198,11 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
             .attr("height", function(d, i) { return (i + 1) * 60; });
 
 
-    d3.text("./csv/data.csv", function (data) {
+    d3.csv("./csv/data.csv").then(function(data) {
 
         //var parsedCSV = d3.csv.parseRows(data);
+        d3.csv(url, callback)
+        d3.csv(url).then(callback)
         parsedCSV = d3.csv.parseRows(data);
         //console.log(parsedCSV);
 
