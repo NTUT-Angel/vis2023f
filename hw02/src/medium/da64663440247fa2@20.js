@@ -22,9 +22,9 @@ function _5(yCounts,years,data)
   for (var y=minYear; y<=maxYear; y++) { 
     //所有年份都建立兩個Object，一個存放男性資料，一個存放女性資料
     yCounts.push({year:y, gender:"male", count:0}); 
-    //Object包含：1. 出生年，2.男性，3.人數(設為0)
+    //Object包含：1.出生年，2.男性，3.人數(設為0)
     yCounts.push({year:y, gender:"female", count:0}); 
-    //Object包含：1. 出生年，2.女性，3.人數(設為0)
+    //Object包含：1.出生年，2.女性，3.人數(設為0)
   }
   data.forEach (x=> {
     var i = (x.Year-minYear)*2 + (x.Gender== "男" ? 0 : 1); 
@@ -49,10 +49,10 @@ Plot.plot({
 
 function _plot2(Inputs){return(
 Inputs.form({
-  mt:  Inputs.range([0, 100], {label: "marginTop", step: 1}),
-  mr:  Inputs.range([0, 100], {label: "marginRight", step: 1}),
-  mb:  Inputs.range([0, 100], {label: "marginBottom", step: 1}),
-  ml:  Inputs.range([0, 100], {label: "marginLeft", step: 1}),
+  mt: Inputs.range([0, 100], {label: "marginTop", step: 1}),
+  mr: Inputs.range([0, 100], {label: "marginRight", step: 1}),
+  mb: Inputs.range([0, 100], {label: "marginBottom", step: 1}),
+  ml: Inputs.range([0, 100], {label: "marginLeft", step: 1}),
 })
 )}
 
@@ -67,7 +67,7 @@ Plot.plot({
   y: {label: "count"},
   marks: [
     Plot.ruleY([0]),
-    Plot.barY(yCounts, {x: "year", y: "count", tip: true , fill:"gender"}),
+    Plot.barY(yCounts, {x: "year", y: "count", tip: true, fill:"gender"}),
   ]
 })
 )}

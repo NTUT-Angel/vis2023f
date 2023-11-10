@@ -10,18 +10,18 @@ function _3(Plot,data){return(
 Plot.plot({ 
 	y: {grid: true, label: "count"}, 
 	marks: [   
-		Plot.rectY(data, Plot.binX({y:"count"}, { x:"Year", interval: 1 })), 
-		Plot.gridY({ interval: 1, stroke:  "white", strokeOpacity: 0.5 })
+		Plot.rectY(data, Plot.binX({y:"count"}, {x:"Year", interval: 1})), 
+		Plot.gridY({interval: 1, stroke: "white", strokeOpacity: 0.5})
 	]
 })
 )}
 
 function _plot1(Inputs){return(
 Inputs.form({
-	mt:  Inputs.range([0, 100], {label: "marginTop", step: 1}),
-	mr:  Inputs.range([0, 100], {label: "marginRight", step: 1}),
-	mb:  Inputs.range([0, 100], {label: "marginBottom", step: 1}),
-	ml:  Inputs.range([0, 100], {label: "marginLeft", step: 1}),
+	mt: Inputs.range([0, 100], {label: "marginTop", step: 1}),
+	mr: Inputs.range([0, 100], {label: "marginRight", step: 1}),
+	mb: Inputs.range([0, 100], {label: "marginBottom", step: 1}),
+	ml: Inputs.range([0, 100], {label: "marginLeft", step: 1}),
 })
 )}
 
@@ -34,8 +34,8 @@ Plot.plot({
   
   y: {grid: true, label: "count"},
   marks: [
-    Plot.rectY(data, Plot.binX({y:"count"}, { x:"Year", interval:1, fill:"Gender", tip: true })),
-    Plot.gridY({ interval: 1, stroke: "white", strokeOpacity: 0.5 }),
+    Plot.rectY(data, Plot.binX({y:"count"}, {x:"Year", interval:1, fill:"Gender", tip: true})),
+    Plot.gridY({interval: 1, stroke: "white", strokeOpacity: 0.5}),
     ]
 })
 )}
