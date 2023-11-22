@@ -559,8 +559,8 @@ export default function define(runtime, observer) {
   const fileAttachments = new Map([
     ["artist.csv", {url: new URL("./artist.csv", import.meta.url), mimeType: "text/csv", toString}],
     ["eco-bag.svg", {url: new URL("./eco-bag.svg", import.meta.url), mimeType: "image/svg+xml", toString}],
-    ["recycling.svg", {url: new URL("./files/recycling.svg", import.meta.url), mimeType: "image/svg+xml", toString}],
-    ["energy-saving.svg", {url: new URL("./saving.svg", import.meta.url), mimeType: "image/svg+xml", toString}],
+    ["recycling.svg", {url: new URL("./recycling.svg", import.meta.url), mimeType: "image/svg+xml", toString}],
+    ["energy-saving.svg", {url: new URL("./energy-saving.svg", import.meta.url), mimeType: "image/svg+xml", toString}],
     ["green-travel.svg", {url: new URL("./green-travel.svg", import.meta.url), mimeType: "image/svg+xml", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
