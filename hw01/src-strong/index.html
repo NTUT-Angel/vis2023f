@@ -296,7 +296,7 @@
                 .attr("fill", "currentColor")
                 .text(d => d.data.name);
 
-            document.getElementById("div2").appendChild(svg.node());
+            document.getElementById("div1").appendChild(svg.node());
         }
 
         d3.json('./csv/data2.json').then(function (data) {
