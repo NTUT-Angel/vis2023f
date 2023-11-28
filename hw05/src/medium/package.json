@@ -1,0 +1,14 @@
+{
+  "name": "9d1541c26ba59c90",
+  "main": "9d1541c26ba59c90@43.js",
+  "version": "43.0.0",
+  "homepage": "https://observablehq.com/d/9d1541c26ba59c90",
+  "author": {
+    "name": "NTUT-Angel's Workspace",
+    "url": "https://observablehq.com/@ntut-angel-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}

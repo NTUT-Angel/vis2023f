@@ -1,0 +1,14 @@
+{
+  "name": "d713a347891b102f",
+  "main": "d713a347891b102f@47.js",
+  "version": "47.0.0",
+  "homepage": "https://observablehq.com/d/d713a347891b102f",
+  "author": {
+    "name": "NTUT-Angel's Workspace",
+    "url": "https://observablehq.com/@ntut-angel-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
