@@ -5,8 +5,8 @@ md`# HW05 Strong baseline`
 function _strong(d3,strong_data,drag,url_list,invalidation)
 {
   // 指定圖表的尺寸。
-  const width = 600;
-  const height = 400;
+  const width = 2000;
+  const height = 550;
 
   // 計算圖形並啟動力模擬。
   const root = d3.hierarchy(strong_data);
@@ -15,7 +15,7 @@ function _strong(d3,strong_data,drag,url_list,invalidation)
   
   const simulation = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(links).id(d => d.id).distance(100).strength(1))
-      .force("charge", d3.forceManyBody().strength(-700))
+      .force("charge", d3.forceManyBody().strength(-2700))
       .force("x", d3.forceX())
       .force("y", d3.forceY());
 
@@ -29,7 +29,7 @@ function _strong(d3,strong_data,drag,url_list,invalidation)
   // 添加連結。
   const link = svg.append("g")
       .attr("stroke", "#00f")
-      .attr("stroke-opacity", 0.6)
+      .attr("stroke-opacity", 10.6)
       .selectAll("line")
       .data(links)
       .join("line");
@@ -53,7 +53,7 @@ function _strong(d3,strong_data,drag,url_list,invalidation)
       
 
   // 添加節點外框
-  const circleRadius = 20; // 調整圓圈半徑大小
+  const circleRadius = 30; // 調整圓圈半徑大小
   node.append("circle")
       .attr("r", circleRadius)
       .attr("fill", "white") // 內部填充顏色

@@ -9,7 +9,7 @@ md`## 滑鼠移動過去顯示該成員相關資訊(1pt)`
 function _medium1(d3,medium_data,drag,invalidation)
 {
    // 指定圖表的尺寸。
-  const width = 1500;
+  const width = 1000;
   const height = 1000;
 
   // 計算圖形並啟動力模擬。
@@ -132,7 +132,7 @@ md`## 滑鼠移動過去放大節點及圖片(2pt)`
 function _medium2(d3,medium_data,drag,invalidation)
 {
    // 指定圖表的尺寸。
-  const width = 1500;
+  const width = 1000;
   const height = 1000;
 
   // 計算圖形並啟動力模擬。
@@ -287,7 +287,7 @@ md`## 點擊節點可以展開或縮放(2pt)`
 function _medium3(d3,medium_data,drag,invalidation)
 {
    // 指定圖表的尺寸。
-  const width = 1500;
+  const width = 1000;
   const height = 1000;
 
   // 計算圖形並啟動力模擬。
