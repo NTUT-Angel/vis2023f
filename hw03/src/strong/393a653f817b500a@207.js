@@ -1,19 +1,20 @@
 import define1 from "./e93997d5089d7165@2303.js";
+import define2 from "./a33468b95d0b15b0@817.js";
 
 function _1(md){return(
-md`# HW03 Medium baseline (4pt)`
+md`# HW03 Strong baseline (4pt)`
 )}
 
 function _data(FileAttachment){return(
-FileAttachment("UserData@1.json").json()
+FileAttachment("UserData.json").json()
 )}
 
 function _bgColor(Inputs){return(
-Inputs.color({ label: "background color", value: "#dde6ee" })
+Inputs.color({ label: "background color", value: "#a2bed7" })
 )}
 
 function _strokeColor(Inputs){return(
-Inputs.color({ label: "stroke color", value: "#FFFFFF" })
+Inputs.color({ label: "stroke color", value: "#00ffe1" })
 )}
 
 function _strokeOpacity(Inputs){return(
@@ -27,10 +28,15 @@ function _taiwan(taiwanMap){return(
 taiwanMap(800, 600, -0.0, -0.6, 8000)
 )}
 
-function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidata){return(
+function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidata,Legend){return(
 (width, height, offsetX, offsetY, scale) => {
   offsetX = offsetX + 0.75;
 
+  const thresholds = [0, 1, 2, 3, 4, 6, 10, 50];  // 自行定義閾值
+  const color = d3.scaleThreshold()
+    .domain(thresholds)
+    .range(d3.schemeBlues[8]);
+  
   const bboxCenter = (bbox) => [
     (bbox[0] + bbox[2]) / 2 + offsetX,
     (bbox[1] + bbox[3]) / 2 + offsetY
@@ -68,19 +74,21 @@ function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidat
     .enter()
     .append("path")
     .attr("fill", (d) => {
-      minidata.find(
+      const countyData = minidata.find(
         (t) =>
           t.value === d.properties.COUNTYNAME &&
           t["value"].replace("　", "") === d.properties.COUNTYNAME
       );
-      //return thresholdScale(t.value)(+t.count);
+      return color(countyData ? countyData.count : 0); // 使用 count 設定填充顏色
+      // return thresholdScale();
     })
     .attr("d", path)
     .append("title")
     .text(d => d.properties.COUNTYNAME);
   
-
-  svg.append("g");
+  svg.append("g")
+      .attr("transform", "translate(100,20)")
+      .append(() => Legend(color, {title: "Number of students living in county", width: 260}));
  
   return svg.node();
 }
@@ -109,17 +117,26 @@ LivePlace_uniqueValues.map(val => ({
 }))
 )}
 
-function _minidata(LivePlace_counts){return(
-LivePlace_counts.flatMap((item, index) => ([
-  {
-    value: item.value,
-    count: item.count,
-    series: 'LivePlace'
-  }
-]))
+function _minidata(){return(
+[]
 )}
 
-function _14(md){return(
+function _14(minidata,LivePlace_counts)
+{
+    minidata.length = 0;
+    for (var i=0; i<LivePlace_counts.length; i++) { 
+      if (LivePlace_counts[i].value === "臺中市" || LivePlace_counts[i].value === "臺北市" || LivePlace_counts[i].value === "臺東縣"){
+        minidata.push({value:LivePlace_counts[i].value.replace("臺", "台"), count:LivePlace_counts[i].count, series: "LivePlace"});
+      }
+      else {
+        minidata.push({value:LivePlace_counts[i].value, count:LivePlace_counts[i].count, series: "LivePlace"});
+      }
+  }
+  return minidata
+}
+
+
+function _15(md){return(
 md`## Requirement`
 )}
 
@@ -235,7 +252,6 @@ function down(svg, data) {
     .attr("fill-opacity", 0)
     .transition(transition2)
     .attr("fill-opacity", 1)
-  
 }
 )}
 
@@ -243,7 +259,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["UserData@1.json", {url: new URL("../json/UserData.json", import.meta.url), mimeType: "application/json", toString}]
+    ["UserData.json", {url: new URL("../json/UserData.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
@@ -255,16 +271,19 @@ export default function define(runtime, observer) {
   main.variable(observer("viewof strokeOpacity")).define("viewof strokeOpacity", ["Inputs"], _strokeOpacity);
   main.variable(observer("strokeOpacity")).define("strokeOpacity", ["Generators", "viewof strokeOpacity"], (G, _) => G.input(_));
   main.variable(observer("taiwan")).define("taiwan", ["taiwanMap"], _taiwan);
-  main.variable(observer("taiwanMap")).define("taiwanMap", ["d3","topojson","tw","DOM","bgColor","strokeColor","strokeOpacity","minidata"], _taiwanMap);
+  main.variable(observer("taiwanMap")).define("taiwanMap", ["d3","topojson","tw","DOM","bgColor","strokeColor","strokeOpacity","minidata","Legend"], _taiwanMap);
   main.variable(observer()).define(["md"], _8);
   main.variable(observer("LivePlace")).define("LivePlace", ["data"], _LivePlace);
   main.variable(observer("LivePlace_column")).define("LivePlace_column", ["data","LivePlace"], _LivePlace_column);
   main.variable(observer("LivePlace_uniqueValues")).define("LivePlace_uniqueValues", ["LivePlace_column"], _LivePlace_uniqueValues);
   main.variable(observer("LivePlace_counts")).define("LivePlace_counts", ["LivePlace_uniqueValues","LivePlace_column"], _LivePlace_counts);
-  main.variable(observer("minidata")).define("minidata", ["LivePlace_counts"], _minidata);
-  main.variable(observer()).define(["md"], _14);
+  main.variable(observer("minidata")).define("minidata", _minidata);
+  main.variable(observer()).define(["minidata","LivePlace_counts"], _14);
+  main.variable(observer()).define(["md"], _15);
   const child1 = runtime.module(define1);
   main.import("select", child1);
+  const child2 = runtime.module(define2);
+  main.import("Legend", child2);
   main.variable(observer("tw")).define("tw", ["d3"], _tw);
   main.variable(observer("topojson")).define("topojson", ["require"], _topojson);
   main.variable(observer("d3")).define("d3", ["require"], _d3);

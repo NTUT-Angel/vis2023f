@@ -1,11 +1,11 @@
 {
-  "name": "ec0e39b666962d0e",
-  "main": "ec0e39b666962d0e@458.js",
-  "version": "458.0.0",
-  "homepage": "https://observablehq.com/d/ec0e39b666962d0e",
+  "name": "393a653f817b500a",
+  "main": "393a653f817b500a@207.js",
+  "version": "207.0.0",
+  "homepage": "https://observablehq.com/d/393a653f817b500a",
   "author": {
-    "name": "吳泳霈's Workspace",
-    "url": "https://observablehq.com/@yung2-ws"
+    "name": "NTUT-Angel's Workspace",
+    "url": "https://observablehq.com/@ntut-angel-ws"
   },
   "type": "module",
   "peerDependencies": {

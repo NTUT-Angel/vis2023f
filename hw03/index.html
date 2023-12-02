@@ -178,15 +178,15 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      Simple baseline 程式碼，請放在 https://github.com/<span style="color:red;">你的帳號</span>/vis2023f/hw<span style="color:red;">03</span>/src/simple 檔案夾。
+      Simple baseline 程式碼，請放在 https://github.com/<span style="color:red;">NTUT-Angel</span>/vis2023f/hw<span style="color:red;">03</span>/src/simple 檔案夾。
       <br>
     
     <hr>
-      Medium baseline 程式碼，請放在 https://github.com/<span style="color:red;">你的帳號</span>/vis2023f/hw<span style="color:red;">03</span>/src/medium 檔案夾。
+      Medium baseline 程式碼，請放在 https://github.com/<span style="color:red;">NTUT-Angel</span>/vis2023f/hw<span style="color:red;">03</span>/src/medium 檔案夾。
       <br>
       
     <hr>
-      Strong baseline 程式碼，請放在 https://github.com/<span style="color:red;">你的帳號</span>/vis2023f/hw<span style="color:red;">03</span>/src/strong 檔案夾。
+      Strong baseline 程式碼，請放在 https://github.com/<span style="color:red;">NTUT-Angel</span>/vis2023f/hw<span style="color:red;">03</span>/src/strong 檔案夾。
       <br>
       </div>
   </div>
@@ -201,15 +201,14 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      <a href="https://yungpei.github.io/vis2023f/hw03/src/simple/planar_graph.html">https://yungpei.github.io/vis2023f/hw03/src/simple/</a>
+      <a href="https://NTUT-Angel.github.io/vis2023f/hw03/src/simple/planar_graph.html">https://NTUT-Angel.github.io/vis2023f/hw03/src/simple/</a>
       <hr>
-      <a href="https://yungpei.github.io/vis2023f/hw03/src/medium/choropleth.html">https://yungpei.github.io/vis2023f/hw03/src/medium/</a>   
+      <a href="https://NTUT-Angel.github.io/vis2023f/hw03/src/medium/choropleth.html">https://NTUT-Angel.github.io/vis2023f/hw03/src/medium/</a>   
       <hr>
-      <a href="https://yungpei.github.io/vis2023f/hw03/src/strong/">https://yungpei.github.io/vis2023f/hw03/src/strong/</a>
+      <a href="https://NTUT-Angel.github.io/vis2023f/hw03/src/strong/">https://NTUT-Angel.github.io/vis2023f/hw03/src/strong/</a>
       </div>
   </div>
 
-  
   <!-- ------------------------------------------------>
 
   <!-- ------------------------------------------------>
@@ -223,7 +222,10 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      這次的作業遇到的困難：1. 讀取JSON檔案並回撥自己的路徑以及行走時間、距離、卡路里等資料。2. 在Observable上將班級人員資料呈現在台灣地圖上。3.要很清楚知道檔案資料的位置，不然畫面會呈現不出來。
+      Simple baseline 和 Medium baseline 的人有時會跳來跳去或走出建築物外面，可能是當時手機網路不好的關係。<br>
+      Strong baseline 參考助教和 <a href="https://observablehq.com/@d3/choropleth/2?intent=fork">D3 Choropleth</a> 的 code，將各縣市以顏色(藍色)淺到深表示班上學生居住的人數多寡。<br>
+      這邊有發現 tw.COUNTYNAME 和 UserData.LivingPlaceFirst 他們的 "台" 和 "臺" 會影響圖表顏色的顯示，所以我做了資料處理，將兩邊的資料統一。<br>
+      domain 一開始分得很細但最後一個值變大，是因為臺北市和新北市的人數跟其他縣市實在是差太多，為了讓圖表可以看出明顯的差異而調大。
     </div>
   </div>
 
@@ -305,14 +307,13 @@
   <div class="row hw12">
     <div class="col-md-12 twenty">
       <iframe width="100%" height="500" frameborder="0" style="background-color: #FFFFFF"
-        src="https://observablehq.com/embed/ec0e39b666962d0e@458?cells=taiwan"></iframe>
+        src="https://observablehq.com/embed/393a653f817b500a?cell=*"></iframe>
     </div>
   </div>  
 
   <!-- ------------------------------------------------>
 
   <!-- ------------------------------------------------>
-
 
 <script>
   $(function() {
