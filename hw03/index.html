@@ -223,6 +223,7 @@
   <div class="row hw12">
     <div class="col-md-12 twenty">
       Simple baseline 和 Medium baseline 的人有時會跳來跳去或走出建築物外面，可能是當時手機網路不好的關係。<br>
+      在 Medium baseline 的 "trace-container" 需要設定 z-index: -1;，不然 checkbox 會不能按。<br>
       Strong baseline 參考助教和 <a href="https://observablehq.com/@d3/choropleth/2?intent=fork">D3 Choropleth</a> 的 code，將各縣市以顏色(藍色)淺到深表示班上學生居住的人數多寡。<br>
       這邊有發現 tw.COUNTYNAME 和 UserData.LivingPlaceFirst 他們的 "台" 和 "臺" 會影響圖表顏色的顯示，所以我做了資料處理，將兩邊的資料統一。<br>
       domain 一開始分得很細但最後一個值變大，是因為臺北市和新北市的人數跟其他縣市實在是差太多，為了讓圖表可以看出明顯的差異而調大。

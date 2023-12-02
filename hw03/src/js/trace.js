@@ -29,33 +29,37 @@ function updateIconPosition(x, y) {
   traceContainer.appendChild(tracePoint);
 }
 
-function loadjson() {
+function updateTraceData(data) {
+  if (data && data.length > 0) {
+    const point = data[currentIndex];
+
+    if (point.Floor !== currentFloor) {
+      // 換樓層時的處理，這裡可以添加你的樓層切換相關邏輯
+      console.log(`Switched to Floor ${point.Floor}`);
+      currentFloor = point.Floor;
+    }
+
+    updateIconPosition(point.X, point.Y);
+    currentIndex++;
+
+    // 如果資料到達末尾，重新從頭開始
+    if (currentIndex >= data.length) {
+      currentIndex = 0;
+    }
+  }
+}
+
+function loadTraceJson() {
   fetch(jsonUrl)
     .then(response => response.json())
     .then(data => {
-      if (data && data.length > 0) {
-        const point = data[currentIndex];
-
-        if (point.Floor !== currentFloor) {
-          // 換樓層時的處理，這裡可以添加你的樓層切換相關邏輯
-          console.log(`Switched to Floor ${point.Floor}`);
-          currentFloor = point.Floor;
-        }
-
-        updateIconPosition(point.X, point.Y);
-        currentIndex++;
-
-        // 如果資料到達末尾，重新從頭開始
-        if (currentIndex >= data.length) {
-          currentIndex = 0;
-        }
-      }
+      updateTraceData(data);
     })
     .catch(error => console.error('Error fetching or parsing JSON:', error));
 }
 
 // 初始加載 icon 位置
-loadjson();
+loadTraceJson();
 
 // 每秒更新一次位置
-setInterval(loadjson, 1000);
+setInterval(loadTraceJson, 1000);
