@@ -29,7 +29,7 @@ function updateIconPosition(x, y) {
   traceContainer.appendChild(tracePoint);
 }
 
-function updateTraceData(data) {
+function updateData(data) {
   if (data && data.length > 0) {
     const point = data[currentIndex];
 
@@ -49,17 +49,17 @@ function updateTraceData(data) {
   }
 }
 
-function loadTraceJson() {
+function loadJson() {
   fetch(jsonUrl)
     .then(response => response.json())
     .then(data => {
-      updateTraceData(data);
+      updateData(data);
     })
     .catch(error => console.error('Error fetching or parsing JSON:', error));
 }
 
 // 初始加載 icon 位置
-loadTraceJson();
+loadJson();
 
 // 每秒更新一次位置
-setInterval(loadTraceJson, 1000);
+setInterval(loadJson, 1000);

@@ -72,27 +72,20 @@ function updateCalorieData(data) {
   }
 }
 
-function loadPathJson() {
+function loadAllJson() {
   fetch(jsonUrlPath)
     .then(response => response.json())
     .then(data => {
       updatePathData(data);
     })
     .catch(error => console.error('Error fetching or parsing JSON:', error));
-}
 
-function loadCalorieJson() {
   fetch(jsonUrlCalorie)
     .then(response => response.json())
     .then(data => {
       updateCalorieData(data);
     })
     .catch(error => console.error('Error fetching JSON:', error));
-}
-
-function loadAllJson() {
-  loadPathJson();
-  loadCalorieJson();
 }
 
 // 初始加載 icon 位置
