@@ -16,7 +16,7 @@ function calculatePosition(x, y) {
 }
 
 function updateIconPosition(x, y) {
-  // console.log(x, y);
+  console.log(x, y);
   const { x: iconX, y: iconY } = calculatePosition(x, y);
   icon.style.left = `${iconX}%`;
   icon.style.top = `${iconY}%`;
